@@ -1,6 +1,17 @@
 # RetrofitOfflineSample
 
-<h1>Live Sample</h1>
+<h1>Offline data ( Caching )</h1>
+
+Caching is a way of temporarily storing data fetched from a network on a device’s storage, so that we can access it at a later time when the device is offline or if we want to access the same data again.
+
+In this article, I’ll be talking about how to enable caching with Retrofit in your app, and store responses temporarily for later use. All this without using a database
+
+
+<h2>Benefits of Caching</h2>
+Reduces bandwidth consumption.<br>
+Saves you time you’d spend waiting for the server to give you the network response.<br>
+Saves the server the burden of additional traffic.<br>
+If you need to access the same network resource again after having accessed it recently, your device won’t need to make a request to the server; it’ll get the cached response instead.<br>
 
 <h1>Credits</h1>
 
