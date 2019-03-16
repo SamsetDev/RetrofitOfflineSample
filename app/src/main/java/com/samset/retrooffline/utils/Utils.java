@@ -15,6 +15,9 @@ import android.util.Log;
 
 public class Utils {
 
+
+    public static String USERNAME="SamsetDev";
+
     public static boolean isConnected(Context context) {
         try {
             ConnectivityManager e = (ConnectivityManager) context.getSystemService(

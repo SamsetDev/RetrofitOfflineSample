@@ -31,12 +31,7 @@ public class AppApplication extends Application {
     public void onCreate() {
         super.onCreate();
         MultiDex.install(this);
-        manager = new RetrofitManager(this);
 
-    }
-
-    public ApiService getApiService() {
-        return manager.getApiService();
     }
 
 }

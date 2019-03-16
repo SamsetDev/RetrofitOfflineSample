@@ -18,11 +18,11 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.samset.retrooffline.AppApplication;
 import com.samset.retrooffline.R;
+import com.samset.retrooffline.network.RetrofitManager;
 import com.samset.retrooffline.ui.listeners.OnItemClickListeners;
 import com.samset.retrooffline.ui.model.BasicResponse;
 import com.samset.retrooffline.ui.model.JSONResponses;
 import com.samset.retrooffline.network.ApiService;
-import com.samset.retrooffline.network.RetrofitManager;
 import com.samset.retrooffline.ui.adapter.MyAdapter;
 
 import java.util.ArrayList;
@@ -44,11 +44,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        RetrofitManager manager = new RetrofitManager(this);
+        apiService=manager.getApiService();
+
         progressBar = findViewById(R.id.progress);
         btnget = findViewById(R.id.btngetdata);
         recyclerview = findViewById(R.id.recyclerview);
         fabbutton = findViewById(R.id.fab);
-        apiService = AppApplication.getInstance().getApiService();
 
 
         recyclerview.setLayoutManager(new LinearLayoutManager(this));
@@ -97,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position) {
                 Log.e("TAG", " selected id " + data.get(position).getId());
+                startNewActivity();
             }
         });
 
@@ -105,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void startNewActivity() {
 
-        startActivity(new Intent(MainActivity.this, DetailsActivity.class));
+        startActivity(new Intent(MainActivity.this, GithubListRxJavaActivity.class));
     }
 
 
