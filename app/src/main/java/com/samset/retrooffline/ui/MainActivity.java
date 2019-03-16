@@ -3,6 +3,7 @@ package com.samset.retrooffline.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.recyclerview.widget.RecyclerView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     RetrofitManager manager;
     private ApiService apiService;
     private ProgressBar progressBar;
-    private AppCompatTextView tvdata;
+    private RecyclerView recyclerview;
     private AppCompatButton btnget;
     public static ArrayList<JSONResponses> data;
 
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         progressBar = findViewById(R.id.progress);
         btnget = findViewById(R.id.btngetdata);
-        tvdata = findViewById(R.id.tvdata);
+        recyclerview = findViewById(R.id.recyclerview);
         manager = new RetrofitManager(this);
         apiService = manager.getApiService();
 
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.GONE);
                 List<BasicResponse> repos = response.body();
                 Log.e("TAG", " response " + repos.size());
-                tvdata.setText(repos.get(0).getName());
+                //tvdata.setText(repos.get(0).getName());
                 // listView.setAdapter(new GitHubRepoAdapter(MainActivity.this, -1, repos));
             }
 
