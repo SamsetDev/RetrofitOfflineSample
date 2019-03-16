@@ -2,6 +2,8 @@ package com.samset.retrooffline;
 
 import android.app.Application;
 
+import com.samset.retrooffline.network.ApiService;
+import com.samset.retrooffline.network.RetrofitManager;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
@@ -18,11 +20,23 @@ import androidx.multidex.MultiDex;
 
 public class AppApplication extends Application {
 
+    private RetrofitManager manager;
+    public static AppApplication appApplication;
+
+    public static AppApplication getInstance() {
+        return appApplication == null ? new AppApplication() : appApplication;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
         MultiDex.install(this);
+        manager = new RetrofitManager(this);
 
+    }
+
+    public ApiService getApiService() {
+        return manager.getApiService();
     }
 
 }

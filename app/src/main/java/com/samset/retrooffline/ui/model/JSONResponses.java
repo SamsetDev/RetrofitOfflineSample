@@ -1,4 +1,4 @@
-package com.samset.retrooffline.model;
+package com.samset.retrooffline.ui.model;
 
 import java.io.Serializable;
 

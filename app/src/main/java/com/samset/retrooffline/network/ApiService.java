@@ -1,12 +1,14 @@
 package com.samset.retrooffline.network;
 
-import com.samset.retrooffline.model.BasicResponse;
+import com.samset.retrooffline.ui.model.BasicResponse;
+import com.samset.retrooffline.ui.model.User;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Copyright (C) RetrofitOfflineSample - All Rights Reserved
@@ -21,6 +23,7 @@ public interface ApiService {
     @GET("/users/{user}/repos")
     Call<List<BasicResponse>> reposForuser(@Path("user") String user);
 
-
+    @GET("users")
+    Call<User> getUserById(@Query("id") Integer id);
 
 }
