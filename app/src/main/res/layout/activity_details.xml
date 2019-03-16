@@ -4,8 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.DetailsActivity">
+    tools:context=".ui.GithubListRxJavaActivity">
 
     <include layout="@layout/progress_view" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rxrecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
