@@ -1,5 +1,7 @@
 package com.samset.retrooffline.utils.custom;
 
+import android.util.Log;
+
 import io.reactivex.Observer;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -33,8 +35,10 @@ public abstract class ResponseObserver<T> implements Observer<T> {
         if (e instanceof HttpException) {
             statusCode = ((HttpException) e).response().code();
             onServerError(e, statusCode);
+            Log.e("TAG"," onserver error ");
         } else {
             onNetworkError(e);
+            Log.e("TAG"," onNetworkError error ");
         }
     }
 

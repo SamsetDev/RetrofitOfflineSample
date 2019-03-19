@@ -67,6 +67,9 @@ dependencies {
     * LIBRARY HEADER 5: RETROFIT  ******************************************************************
     */
 
+    implementation "com.facebook.stetho:stetho:$rootProject.facebook"
+    implementation "com.facebook.stetho:stetho-okhttp3:$rootProject.facebook"
+
     /*
     * Step 1: Adding retrofit library
     */

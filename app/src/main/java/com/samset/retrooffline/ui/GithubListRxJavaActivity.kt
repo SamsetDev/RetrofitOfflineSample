@@ -52,6 +52,7 @@ class GithubListRxJavaActivity : AppCompatActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : ResponseObserver<Response<List<BasicResponse>>>(compositeDisposable) {
                     override fun onNetworkError(e: Throwable) {
+                        Toast.makeText(this@GithubListRxJavaActivity,"Internet is not available",Toast.LENGTH_LONG)
                         progress.setVisibility(View.GONE)
 
                     }
