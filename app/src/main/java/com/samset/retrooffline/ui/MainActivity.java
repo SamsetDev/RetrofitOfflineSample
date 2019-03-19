@@ -28,6 +28,8 @@ import com.samset.retrooffline.ui.adapter.MyAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.samset.retrooffline.utils.Utils.USERNAME;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -75,13 +77,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void get_data() {
         progressBar.setVisibility(View.VISIBLE);
-        Call<List<BasicResponse>> call = apiService.reposForuser("SamsetDev");
+        Call<List<BasicResponse>> call = apiService.reposForuser(USERNAME);
         call.enqueue(new Callback<List<BasicResponse>>() {
             @Override
             public void onResponse(Call<List<BasicResponse>> call, Response<List<BasicResponse>> response) {
                 progressBar.setVisibility(View.GONE);
                 List<BasicResponse> repos = response.body();
-                Log.e("TAG", " response " + repos.size());
+                //Log.e("TAG", " response " + repos.size());
                 setupAdapter(repos);
             }
 

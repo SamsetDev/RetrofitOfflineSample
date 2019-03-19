@@ -2,6 +2,7 @@ package com.samset.retrooffline;
 
 import android.app.Application;
 
+import com.facebook.stetho.Stetho;
 import com.samset.retrooffline.network.ApiService;
 import com.samset.retrooffline.network.RetrofitManager;
 import com.squareup.picasso.Picasso;
@@ -31,7 +32,19 @@ public class AppApplication extends Application {
     public void onCreate() {
         super.onCreate();
         MultiDex.install(this);
+        debugToolsInitilization();
 
+    }
+
+
+    private void debugToolsInitilization() {
+        Stetho.initializeWithDefaults(this);
+
+        Stetho.initialize(
+                Stetho.newInitializerBuilder(this)
+                        .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                        .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
+                        .build());
     }
 
 }
